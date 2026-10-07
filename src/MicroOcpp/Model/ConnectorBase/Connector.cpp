@@ -536,6 +536,7 @@ bool Connector::isFaulted() {
     //for (auto i = errorDataInputs.begin(); i != errorDataInputs.end(); ++i) {
     for (size_t i = 0; i < errorDataInputs.size(); i++) {
         if (errorDataInputs[i].operator()().isFaulted) {
+            // MO_DBG_DEBUG("%d, %s", i, errorDataInputs[i].operator()().errorCode);
             return true;
         }
     }
