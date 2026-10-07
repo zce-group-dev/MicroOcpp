@@ -6,6 +6,7 @@
 #define MO_CHARGEPOINTERRORCODE_H
 
 #include <stdint.h>
+#include <cstring>
 
 namespace MicroOcpp {
 
@@ -21,7 +22,7 @@ struct ErrorData {
     ErrorData() = default;
 
     ErrorData(const char *errorCode = nullptr) : errorCode(errorCode) {
-        if (errorCode) {
+        if (errorCode && strcmp(errorCode, "NoError") != 0) {
             isError = true;
             isFaulted = true;
         }
